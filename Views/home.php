@@ -41,7 +41,7 @@ $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegu
 <!-- Osito Blanco -->
 <div class="bear" id="bear">
     <img src="https://i.pinimg.com/originals/1a/19/60/1a19605a88ae5f96ffa0558b575e0871.gif" alt="Bear" style="width: 100px;">
-    <div class="welcome-message" id="welcome-message">Eres hermosa tal como eres, pero un toque de brillo nunca está de más</div>
+    <div class="welcome-message" id="welcome-message">¡Eres hermosa tal como eres, pero un toque de brillo nunca está de más!</div>
 </div>
 
 <!-- Cuadro de Mensajes -->
