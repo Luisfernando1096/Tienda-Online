@@ -38,10 +38,31 @@ $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegu
     </div>
 </section>
 
+<!-- Osito Blanco -->
+<div class="bear" id="bear">
+    <img src="https://i.pinimg.com/originals/1a/19/60/1a19605a88ae5f96ffa0558b575e0871.gif" alt="Bear" style="width: 100px;">
+    <div class="welcome-message" id="welcome-message">Eres hermosa tal como eres, pero un toque de brillo nunca está de más</div>
+</div>
+
+<!-- Cuadro de Mensajes -->
+<div class="message-box" id="message-box"></div>
+
 <?php footerTienda($data); ?>
 
-<!-- Estilos del Carrusel -->
+<!-- Estilos del Carrusel y Osito -->
 <style>
+    @keyframes moveBear {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px); /* Ajusta la distancia del movimiento vertical */
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
     .carousel {
         position: relative;
         width: 90vw;
@@ -50,15 +71,12 @@ $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegu
         justify-content: center;
         align-items: center;
         cursor: grab;
-        /* Cursor de agarre */
     }
 
     .box {
         position: absolute;
         width: 25vw;
-        /* Ajustado para que las imágenes sean un poco más pequeñas */
         height: 55vh;
-        /* Ajustado para que las imágenes sean un poco más pequeñas */
         background-size: cover;
         background-position: center;
         transition: transform 0.5s ease, opacity 0.5s ease;
@@ -67,12 +85,10 @@ $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegu
         border-radius: 10px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         margin: 0 20px;
-        /* Aumentando el margen para más separación */
     }
 
     .box.center {
         transform: translateX(0) scale(1.2);
-        /* Imagen principal más grande */
         opacity: 1;
         filter: grayscale(0);
         z-index: 2;
@@ -80,25 +96,21 @@ $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegu
 
     .box.left {
         transform: translateX(-80%) scale(0.8);
-        /* Ajustado para mayor separación */
         z-index: 1;
     }
 
     .box.right {
         transform: translateX(80%) scale(0.8);
-        /* Ajustado para mayor separación */
         z-index: 1;
     }
 
     .box.offscreen-left {
         transform: translateX(-140%) scale(0.6);
-        /* Imágenes adicionales a la izquierda */
         opacity: 0;
     }
 
     .box.offscreen-right {
         transform: translateX(140%) scale(0.6);
-        /* Imágenes adicionales a la derecha */
         opacity: 0;
     }
 
@@ -106,17 +118,54 @@ $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegu
     .product-price {
         position: absolute;
         bottom: 10px;
-        /* Ajustar según sea necesario */
         left: 10px;
-        /* Ajustar según sea necesario */
         color: white;
         background: rgba(0, 0, 0, 0.6);
         padding: 5px 10px;
         border-radius: 5px;
     }
+
+    /* Estilos del osito */
+    .bear {
+        position: fixed;
+        bottom: 20px;
+        left: 20px; /* Cambiado a la izquierda */
+        transition: transform 0.3s;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: moveBear 1s infinite; /* Animación continua */
+    }
+
+    .bear:hover {
+        transform: scale(1.1);
+    }
+
+    .welcome-message {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #333;
+        text-align: center;
+        display: block; /* Asegúrate de que se muestre */
+    }
+
+    /* Estilos del cuadro de mensajes */
+    .message-box {
+        position: fixed;
+        bottom: 120px; /* Ajusta según necesites */
+        left: 20px; /* Mantener la posición a la izquierda */
+        background-color: rgba(255, 255, 255, 0.9);
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        display: none; /* Ocultar inicialmente */
+        z-index: 20;
+    }
 </style>
 
-<!-- Script del Carrusel -->
+<!-- Script del Carrusel y Osito -->
 <script>
     const boxes = document.querySelectorAll('.box');
     let currentIndex = 0;
@@ -187,4 +236,40 @@ $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegu
     // Inicializa la primera imagen y comienza la rotación automática
     updatePositions();
     startAutoRotate();
+
+    // Sistema de mensajes
+    const messages = [
+        "¡Bienvenido a nuestra tienda!",
+        "¡Descubre nuestras ofertas especiales!",
+        "¡No te pierdas nuestras novedades!",
+        "¡Estamos aquí para ayudarte!"
+    ];
+
+    let messageIndex = 0;
+
+    function showNextMessage() {
+        const messageBox = document.getElementById('message-box');
+        messageBox.textContent = messages[messageIndex];
+        messageBox.style.display = 'block'; // Mostrar el cuadro
+
+        messageIndex++;
+
+        if (messageIndex >= messages.length) {
+            setTimeout(() => {
+                messageBox.style.display = 'none'; // Ocultar después de mostrar todos
+                document.getElementById('bear').style.display = 'none'; // Ocultar el osito también
+            }, 3000); // Mantener visible el último mensaje
+            clearInterval(messageInterval); // Detener el intervalo
+        } else {
+            setTimeout(() => {
+                messageBox.style.display = 'none'; // Ocultar el cuadro después de 5 segundos
+            }, 5000); // Duración del mensaje visible
+        }
+    }
+
+    // Iniciar la rotación de mensajes
+    const messageInterval = setInterval(showNextMessage, 8000); // Cambiar cada 8 segundos
+    showNextMessage(); // Mostrar el primer mensaje inmediatamente
 </script>
+
+<?php footerTienda($data); ?>
