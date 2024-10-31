@@ -134,7 +134,7 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 								<a href="<?= base_url(); ?>">Inicio</a>
 							</li>
 							<li>
-								<a href="<?= base_url(); ?>/tienda">Tienda</a>
+								<a href="<?= base_url(); ?>/tienda">Productos</a>
 							</li>
 							<li>
 								<a href="<?= base_url(); ?>/carrito">Carrito</a>
@@ -248,7 +248,8 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 
 			.search-input {
 				height: 30px;
-				width: 400px; /* Ajusta el valor según tus necesidades */
+				width: 400px;
+				/* Ajusta el valor según tus necesidades */
 				/* Ajusta la altura del input */
 				padding: 0 10px;
 				/* Espaciado interno del input */
@@ -327,7 +328,11 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 				color: white;
 				/* Color al pasar el cursor */
 			}
-			
+
+			.main-menu li a {
+				font-size: 15px;
+				/* Cambia este valor al tamaño que desees */
+			}
 		</style>
 		<script>
 			document.addEventListener('DOMContentLoaded', function() {
@@ -451,7 +456,7 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 				</li>
 
 				<li>
-					<a href="<?= base_url(); ?>/tienda">Tienda</a>
+					<a href="<?= base_url(); ?>/tienda">Productos</a>
 				</li>
 
 				<li>

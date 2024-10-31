@@ -95,9 +95,10 @@ $idpagina = $data['page']['idpost'];
 						<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-20" id="mensaje" name="mensaje" placeholder="Cual es tu pregunta o mensaje?" required></textarea>
 					</div>
 
-					<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+					<button class="flex-c-m stext-101 cl0 size-121" style="background-color: #624E88; color: white; border: 1px solid transparent; padding: 10px 20px; border-radius: 5px; transition: background-color 0.3s, transform 0.3s;">
 						Enviar
 					</button>
+
 				</form>
 			</div>
 		</div>

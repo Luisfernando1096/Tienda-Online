@@ -11,10 +11,10 @@ $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegu
 <section class="bg0 p-t-23 p-b-140">
     <div class="container">
         <div class="p-b-10" style="margin-top: 50px;">
-            <h3 class="ltext-103 cl5" style="margin-inline-start: 22px; color: #fcb388;">Productos Nuevos</h3>
+            <h3 class="ltext-103 cl5" style="margin-inline-start: 22px; color: #fcb388;">Categorias disponibles</h3>
         </div>
         <hr>
-        <!-- Carrusel de Productos -->
+        <?php /* 
         <div class="carousel">
             <?php foreach ($arrProductos as $producto): ?>
                 <?php
@@ -23,6 +23,15 @@ $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegu
                 <div class="box" style="background-image: url('<?= $portada ?>');">
                     <a href="<?= base_url() . '/tienda/producto/' . $producto['idproducto'] . '/' . $producto['ruta']; ?>" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">Ver producto</a>
                     <div class="product-price"><?= number_format($producto['precio'], 2) ?> €</div> <!-- Agregando el precio -->
+                </div>
+            <?php endforeach; ?>
+        </div>
+        */ ?>
+        <div class="carousel">
+            <?php foreach ($arrSlider as $categoria): ?>
+                <div class="box" style="background-image: url('<?= $categoria['portada'] ?>');">
+                    <a href="<?= base_url() . '/tienda/categoria/' . $categoria['idcategoria'] . '/' . $categoria['ruta']; ?>" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">Ver categoria</a>
+                    <div class="category-name"><?= $categoria['nombre'] ?></div> <!-- Nombre de la categoría -->
                 </div>
             <?php endforeach; ?>
         </div>
@@ -51,13 +60,50 @@ $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegu
 
 <!-- Estilos del Carrusel y Osito -->
 <style>
+    .box {
+        position: relative;
+        /* Cambiado para permitir posicionamiento absoluto del nombre */
+        width: 25vw;
+        height: 55vh;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        filter: grayscale(100%);
+        opacity: 0.5;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        margin: 0 20px;
+    }
+
+    .category-name {
+        position: absolute;
+        bottom: 10px;
+        /* Ajusta la distancia desde la parte inferior */
+        left: 50%;
+        transform: translateX(-50%);
+        /* Centra el texto horizontalmente */
+        color: white;
+        /* Color del texto */
+        background: rgba(0, 0, 0, 0.5);
+        /* Fondo semi-transparente */
+        padding: 5px 10px;
+        /* Espaciado alrededor del texto */
+        border-radius: 5px;
+        /* Esquinas redondeadas */
+        text-align: center;
+        /* Centra el texto dentro del div */
+    }
+
     @keyframes moveBear {
         0% {
             transform: translateY(0);
         }
+
         50% {
-            transform: translateY(-10px); /* Ajusta la distancia del movimiento vertical */
+            transform: translateY(-10px);
+            /* Ajusta la distancia del movimiento vertical */
         }
+
         100% {
             transform: translateY(0);
         }
@@ -129,13 +175,15 @@ $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegu
     .bear {
         position: fixed;
         bottom: 20px;
-        left: 20px; /* Cambiado a la izquierda */
+        left: 20px;
+        /* Cambiado a la izquierda */
         transition: transform 0.3s;
         z-index: 10;
         display: flex;
         flex-direction: column;
         align-items: center;
-        animation: moveBear 1s infinite; /* Animación continua */
+        animation: moveBear 1s infinite;
+        /* Animación continua */
     }
 
     .bear:hover {
@@ -147,20 +195,24 @@ $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegu
         font-size: 14px;
         color: #333;
         text-align: center;
-        display: block; /* Asegúrate de que se muestre */
+        display: block;
+        /* Asegúrate de que se muestre */
     }
 
     /* Estilos del cuadro de mensajes */
     .message-box {
         position: fixed;
-        bottom: 120px; /* Ajusta según necesites */
-        left: 20px; /* Mantener la posición a la izquierda */
+        bottom: 120px;
+        /* Ajusta según necesites */
+        left: 20px;
+        /* Mantener la posición a la izquierda */
         background-color: rgba(255, 255, 255, 0.9);
         border: 1px solid #ccc;
         padding: 10px;
         border-radius: 5px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        display: none; /* Ocultar inicialmente */
+        display: none;
+        /* Ocultar inicialmente */
         z-index: 20;
     }
 </style>
