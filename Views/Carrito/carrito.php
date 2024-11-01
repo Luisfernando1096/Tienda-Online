@@ -111,7 +111,7 @@ if (isset($_SESSION['arrCarrito']) && count($_SESSION['arrCarrito']) > 0) {
                         </div>
                         <a href="<?= base_url() ?>/carrito/procesarpago" id="btnComprar" class="flex-c-m stext-101 cl0 size-116 bg-black bor14 hov-btn3 p-lr-15 trans-04 pointer" style="background-color: #624E88; color: white;">Procesar pago</a>
 
-                        <a href="<?= base_url() ?>/carrito/procesarpago" class="flex-c-m stext-101 cl0 size-116 bg-black bor14 hov-btn3 p-lr-15 trans-04 pointer" style="background-color: #624E88; color: white;">Seguir comprando</a>
+                        <a href="<?= base_url() ?>/tienda/" class="flex-c-m stext-101 cl0 size-116 bg-black bor14 hov-btn3 p-lr-15 trans-04 pointer" style="background-color: #D79B6A; color: white; margin-top: 8px;">Seguir comprando</a>
                     </div>
                 </div>
             </div>
