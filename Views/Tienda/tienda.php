@@ -20,9 +20,6 @@ $arrProductos = $data['productos'];
                     <div class="filter-col4 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">Categorías</div>
                         <div class="flex flex-wrap p-t-4 m-r--5">
-                            <a href="<?= base_url() ?>/tienda" class="category-item flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5">
-                                Ver Todos
-                            </a>
                             <?php
                             if (count($data['categorias']) > 0) {
                                 foreach ($data['categorias'] as $categoria) { ?>
