@@ -72,12 +72,14 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 </head>
 
 <body class="animsition">
-	<!-- Modal -->
+	<!-- Modal Preguntas Frecuentes -->
 	<div class="modal fade" id="modalAyuda" tabindex="-1" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title"><?= $tituloPreguntas ?></h5>
+					<h5 class="modal-title">
+						<h4>Preguntas frecuentes</h4>
+					</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -93,6 +95,146 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 			</div>
 		</div>
 	</div>
+
+	<!-- Modal HTML -->
+	<div class="modal fade" id="modalTerminos" tabindex="-1" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">
+						<h4>Terminos y condiciones</h4>
+					</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="page-content">
+						<p>Gracias por elegirnos para tus compras de productos de belleza y cuidado personal. Al usar nuestro sitio web, aceptas los siguientes términos y condiciones.</p>
+
+						<h5>
+							<i class="fas fa-box-open"></i>
+							1. Información sobre los productos
+						</h5>
+						<p>Nuestros productos están diseñados para mejorar tu belleza y bienestar. Todos los productos son cosméticos de calidad, pero es importante que leas las descripciones, ingredientes y advertencias para asegurarte de que no tienes ninguna alergia o sensibilidad a los componentes.</p>
+
+						<h5>
+							<i class="fas fa-credit-card"></i>
+							2. Precios y Pagos
+						</h5>
+						<p>Los precios de los productos están indicados en la página de cada artículo y son los vigentes en el momento de la compra. Los pagos pueden realizarse mediante tarjetas de crédito, débito o plataformas de pago en línea autorizadas, como PayPal. Todos los pagos se procesan de manera segura.</p>
+
+						<h5>
+							<i class="fas fa-truck"></i>
+							3. Envíos y Entregas
+						</h5>
+						<p>Realizamos envíos a nivel nacional e internacional. El tiempo de entrega depende de la ubicación de destino y el tipo de servicio de envío elegido. Los costos de envío son calculados durante el proceso de compra. Asegúrate de proporcionar la dirección correcta, ya que no nos hacemos responsables de los envíos erróneos por información incorrecta proporcionada.</p>
+
+						<h5>
+							<i class="fas fa-undo"></i>
+							4. Política de Devoluciones
+						</h5>
+						<p>Si no estás satisfecho con tu compra, ofrecemos un plazo de 14 días naturales para realizar una devolución. Los productos deben estar sin abrir y en su embalaje original. No aceptamos devoluciones de productos que hayan sido abiertos, usados o que presenten daños. El cliente es responsable de los gastos de envío para la devolución.</p>
+
+						<h5>
+							<i class="fas fa-shield-alt"></i>
+							5. Garantía de Productos
+						</h5>
+						<p>Todos nuestros productos tienen una garantía de calidad. Si recibes un producto defectuoso o dañado, por favor notifícanos dentro de las 48 horas posteriores a la entrega para que podamos proceder con un reemplazo o reembolso.</p>
+
+						<h5>
+							<i class="fas fa-lock"></i>
+							6. Protección de Datos Personales
+						</h5>
+						<p>Nos comprometemos a proteger la privacidad de nuestros clientes. Los datos personales proporcionados durante el proceso de compra serán utilizados exclusivamente para procesar tu pedido y mejorar tu experiencia de compra. No compartimos tu información con terceros sin tu consentimiento.</p>
+
+						<h5>
+							<i class="fas fa-laptop"></i>
+							7. Uso del Sitio Web
+						</h5>
+						<p>El uso de este sitio web está permitido exclusivamente para fines legales. No se permite el uso de nuestro sitio para realizar actividades fraudulentas, dañar la imagen de la tienda o infringir las leyes locales o internacionales.</p>
+
+						<h5>
+							<i class="fas fa-sync-alt"></i>
+							8. Cambios en los Términos y Condiciones
+						</h5>
+						<p>Nos reservamos el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones serán publicadas en nuestro sitio web y entrarán en vigor inmediatamente después de su publicación. Te recomendamos revisar regularmente estos términos para estar al tanto de cualquier cambio.</p>
+
+						<h5>
+							<i class="fas fa-phone-alt"></i>
+							9. Contacto
+						</h5>
+						<p>Si tienes alguna pregunta sobre nuestros términos y condiciones, o cualquier otra consulta, no dudes en ponerte en contacto con nosotros a través de nuestro formulario de contacto o enviando un correo electrónico a <strong>cosmetify@gmail.com</strong>.</p>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Estilos CSS -->
+	<style>
+		.modal-dialog {
+			max-width: 60%;
+			/* Ajustamos el ancho del modal */
+		}
+
+		.modal-content {
+			border-radius: 15px;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		}
+
+		.modal-header {
+			background-color: #f8f9fa;
+			border-bottom: 2px solid #dee2e6;
+		}
+
+		.modal-title h4 {
+			font-size: 1.3rem;
+			font-weight: 600;
+			color: #333;
+		}
+
+		.close {
+			color: #333;
+			font-size: 1.3rem;
+		}
+
+		.modal-body {
+			padding: 30px 50px;
+			background-color: #fff;
+			line-height: 1.5;
+			font-size: 0.95rem;
+		}
+
+		.modal-body h5 {
+			font-size: 1.2rem;
+			color: #fcb388;
+			margin-top: 20px;
+		}
+
+		.modal-body h5 i {
+			color: #fcb388;
+			margin-right: 8px;
+			font-size: 1.2rem;
+		}
+
+		.modal-footer {
+			border-top: 2px solid #dee2e6;
+		}
+
+		.btn-secondary {
+			background-color: #fcb388;
+			border: none;
+			color: white;
+			font-weight: bold;
+			font-size: 1rem;
+		}
+	</style>
+
+
 	<div id="divLoading">
 		<div>
 			<img src="<?= media(); ?>/images/loading.svg" alt="Loading">
@@ -181,6 +323,7 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 									<div class="user-menu-item"><a href="<?= base_url() ?>/login">Iniciar Sesión</a></div>
 								<?php } ?>
 								<div class="user-menu-item"><a href="#" data-toggle="modal" data-target="#modalAyuda">Help & FAQs</a></div>
+								<div class="user-menu-item"><a href="#" data-toggle="modal" data-target="#modalTerminos">Terminos y condiciones</a></div>
 							</div>
 						</div>
 					</div>
@@ -198,7 +341,7 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 				box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 				z-index: 1000;
 				right: 10px;
-				width: 160px;
+				width: 250px;
 				padding: 10px;
 			}
 
@@ -248,7 +391,7 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 
 			.search-input {
 				height: 30px;
-				width: 400px;
+				width: 225px;
 				/* Ajusta el valor según tus necesidades */
 				/* Ajusta la altura del input */
 				padding: 0 10px;
@@ -500,7 +643,7 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 		<div class="header-cart flex-col-l p-l-65 p-r-25">
 			<div class="header-cart-title flex-w flex-sb-m p-b-8">
 				<span class="mtext-103 cl2">
-					Tu carrito
+					Carrito de compras 
 				</span>
 
 				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">

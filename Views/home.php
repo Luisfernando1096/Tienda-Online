@@ -111,7 +111,7 @@ $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegu
 
     .carousel {
         position: relative;
-        width: 90vw;
+        width: 80vw;
         height: 70vh;
         display: flex;
         justify-content: center;

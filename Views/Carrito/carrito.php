@@ -50,14 +50,17 @@ if (isset($_SESSION['arrCarrito']) && count($_SESSION['arrCarrito']) > 0) {
                                 ?>
                                     <tr class="table_row <?= $idProducto ?>">
                                         <td class="column-1">
-                                            <div class="block2-pic hov-img0" style="position: relative; overflow: hidden;">
-                                                <a href="<?= base_url() . '/tienda/producto/' . $producto['idproducto'] . '/' . $rutaProducto; ?>">
-                                                    <img src="<?= $producto['imagen'] ?>" alt="<?= $producto['producto'] ?>" style="width: 150px; height: auto;">
-                                                    <span class="ver-text">Ver detalles</span>
-                                                </a>
+                                            <div class="product-info">
+                                                <div class="block2-pic hov-img0" style="position: relative; overflow: hidden;">
+                                                    <a href="<?= base_url() . '/tienda/producto/' . $producto['idproducto'] . '/' . $rutaProducto; ?>">
+                                                        <img src="<?= $producto['imagen'] ?>" alt="<?= $producto['producto'] ?>" style="width: 150px; height: auto;">
+                                                        <span class="ver-text">Ver detalles</span>
+                                                    </a>
+                                                </div>
+                                                <div class="product-name"><?= htmlspecialchars($producto['producto']) ?></div>
                                             </div>
                                         </td>
-                                        <td class="column-2"><?= htmlspecialchars($producto['producto']) ?></td>
+                                        <td class="column-2"></td>
                                         <td class="column-3"><?= SMONEY . formatMoney($producto['precio']) ?></td>
                                         <td class="column-4">
                                             <div class="wrap-num-product flex-w m-l-auto m-r-0">
@@ -109,9 +112,9 @@ if (isset($_SESSION['arrCarrito']) && count($_SESSION['arrCarrito']) > 0) {
                                 <span id="totalCompra" class="mtext-110 cl2"><?= SMONEY . formatMoney($subtotal + COSTOENVIO) ?></span>
                             </div>
                         </div>
-                        <a href="<?= base_url() ?>/carrito/procesarpago" id="btnComprar" class="flex-c-m stext-101 cl0 size-116 bg-black bor14 hov-btn3 p-lr-15 trans-04 pointer" style="background-color: #624E88; color: white;">Procesar pago</a>
+                        <a href="<?= base_url() ?>/carrito/procesarpago" id="btnComprar" class="btn-carrito btn-carrito-procesar" style="background-color: #624E88; color: white;">Procesar pago</a>
 
-                        <a href="<?= base_url() ?>/tienda/" class="flex-c-m stext-101 cl0 size-116 bg-black bor14 hov-btn3 p-lr-15 trans-04 pointer" style="background-color: #D79B6A; color: white; margin-top: 8px;">Seguir comprando</a>
+                        <a href="<?= base_url() ?>/tienda/" class="btn-carrito bg-seguir-comprando" style="color: white; margin-top: 8px;">Seguir comprando</a>
                     </div>
                 </div>
             </div>
@@ -171,25 +174,79 @@ footerTienda($data);
         transform: scale(1.1);
     }
 
+    /* Contenedor para la imagen y el nombre del producto */
+    .product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Estilo para el nombre del producto */
+    .product-name {
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #333;
+    }
+
     /* Nuevos estilos para centrar todos los elementos de la tabla */
     .table-shopping-cart {
         width: 100%;
         border-collapse: collapse;
-        /* Asegura que no haya espacio entre celdas */
     }
 
     .table-shopping-cart th,
     .table-shopping-cart td {
         text-align: center;
-        /* Centra el texto en todas las celdas */
         vertical-align: middle;
-        /* Centra verticalmente */
         padding: 10px;
-        /* Espaciado interno para que se vea mejor */
     }
 
     .table_head {
         background-color: #f8f9fa;
-        /* Fondo para encabezado si se desea */
+    }
+
+    /* Estilos comunes para ambos botones */
+    .btn-carrito {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.16rem;
+        font-weight: bold;
+        padding: 12px 15px;
+        border-radius: 14px;
+        text-align: center;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .bg-black {
+        background-color: #624E88;
+    }
+
+    .bg-seguir-comprando {
+        background-color: #D79B6A;
+    }
+
+    .btn-carrito:hover {
+        opacity: 0.8;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .btn-carrito-procesar {
+        animation: pulse 1.5s ease-in-out infinite;
     }
 </style>
