@@ -103,7 +103,67 @@ $idpagina = $data['page']['idpost'];
 			</div>
 		</div>
 	</div>
-</section>
+</section><a href="https://wa.me/60586125?text=Hola,%20necesito%20informacion" target="_blank" class="whatsapp-btn">
+	<i class="fab fa-whatsapp"></i>
+	<span class="whatsapp-text">Contactar por WhatsApp</span>
+</a>
+
+<!-- Estilos CSS para el botón flotante -->
+<style>
+	/* Estilo para el icono flotante de WhatsApp */
+	.whatsapp-btn {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		background-color: #25d366;
+		color: white;
+		border-radius: 30px;
+		/* Rounding the corners */
+		padding: 10px 10px;
+		/* Padding more on the sides */
+		font-size: 24px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		z-index: 9999;
+		transition: background-color 0.3s ease, width 0.3s ease, padding 0.3s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 60px;
+		margin-bottom: 30px;
+		/* Minimum width to keep the icon visible */
+	}
+
+	/* Estilo cuando el icono se pasa por encima (se agranda el cuadro) */
+	.whatsapp-btn:hover {
+		background-color: #128C7E;
+		width: 200px;
+		/* Cambiar el ancho del cuadro */
+		padding: 10px 20px;
+		/* Ajustar el padding */
+	}
+
+	/* El texto que aparece al pasar el mouse */
+	.whatsapp-text {
+		display: none;
+		margin-left: 10px;
+		font-size: 14px;
+		color: white;
+		font-weight: 600;
+		transition: opacity 0.3s ease;
+	}
+
+	/* Mostrar el texto cuando el mouse está sobre el ícono */
+	.whatsapp-btn:hover .whatsapp-text {
+		display: inline-block;
+		opacity: 1;
+		/* Fade-in effect */
+	}
+
+	/* Icono de WhatsApp */
+	.whatsapp-btn i {
+		font-size: 24px;
+	}
+</style>
 
 <?php
 if (viewPage($idpagina)) {
