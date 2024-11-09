@@ -166,7 +166,7 @@ $idpagina = $data['page']['idpost'];
 </style>
 
 <?php
-if (viewPage($idpagina)) {
+/*if (viewPage($idpagina)) {
 	echo $data['page']['contenido'];
 } else {
 ?>
@@ -177,6 +177,6 @@ if (viewPage($idpagina)) {
 		</div>
 	</div>
 <?php
-}
+}*/
 footerTienda($data);
 ?>
