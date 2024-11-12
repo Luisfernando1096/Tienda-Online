@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +11,8 @@
     <link rel="stylesheet" type="text/css" href="<?= media(); ?>/css/main.css">
     <link rel="stylesheet" type="text/css" href="<?= media(); ?>/css/style.css">
     <style>
-        body, html {
+        body,
+        html {
             height: 100%;
             display: flex;
             align-items: center;
@@ -48,25 +50,30 @@
             text-align: right;
         }
 
-        .login-form, .forget-form {
+        .login-form,
+        .forget-form {
             display: flex;
             flex-direction: column;
             width: 100%;
         }
 
         .form-group {
-            margin-bottom: 15px; /* Espacio entre grupos */
+            margin-bottom: 15px;
+            /* Espacio entre grupos */
         }
 
-        .login-form input, .forget-form input {
+        .login-form input,
+        .forget-form input {
             padding: 10px;
             border: none;
             border-radius: 5px;
             font-size: 14px;
-            width: 100%; /* Asegura que el input use el 100% del contenedor */
+            width: 100%;
+            /* Asegura que el input use el 100% del contenedor */
         }
 
-        .login-form button, .forget-form button {
+        .login-form button,
+        .forget-form button {
             padding: 10px;
             background-color: #624E88;
             border: none;
@@ -76,7 +83,8 @@
             cursor: pointer;
         }
 
-        .login-form button:hover, .forget-form button:hover {
+        .login-form button:hover,
+        .forget-form button:hover {
             background-color: #444;
         }
 
@@ -106,8 +114,41 @@
         }
 
         .btn-container {
-            margin-top: 10px; /* Espacio encima del botón */
-            text-align: center; /* Centra el botón */
+            margin-top: 10px;
+            /* Espacio encima del botón */
+            text-align: center;
+            /* Centra el botón */
+        }
+
+        .btn-container {
+            margin-top: 10px;
+            /* Menos espacio entre el texto y el botón */
+            width: 100%;
+            /* Asegura que el contenedor ocupe el 100% del ancho disponible */
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-website {
+            padding: 8px 20px;
+            background-color: white;
+            color: #624E88;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 4px;
+            border: 2px solid #624E88;
+            transition: background-color 0.3s, color 0.3s, transform 0.3s;
+        }
+
+        .btn-website:hover {
+            background-color: #624E88;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .btn-website:active {
+            transform: scale(0.95);
         }
     </style>
     <title><?= $data['page_tag']; ?></title>
@@ -162,19 +203,22 @@
         <div class="welcome-section">
             <h2>Bienvenido a nuestro sistema online</h2>
             <h5>Gracias por visitarnos, agradecemos la oportunidad que nos brinda</h5>
+            <div class="btn-container">
+                <a href="<?= base_url(); ?>" class="btn-website">Ir a Sitio Web</a>
+            </div>
         </div>
     </div>
     <script>
         const base_url = "<?= base_url(); ?>";
 
         // Toggle between login and reset password forms
-        document.getElementById('forgotPassword').addEventListener('click', function (e) {
+        document.getElementById('forgotPassword').addEventListener('click', function(e) {
             e.preventDefault();
             document.querySelector('.login-form').style.display = 'none';
             document.getElementById('formRecetPass').style.display = 'flex';
         });
 
-        document.getElementById('backToLogin').addEventListener('click', function (e) {
+        document.getElementById('backToLogin').addEventListener('click', function(e) {
             e.preventDefault();
             document.querySelector('.login-form').style.display = 'flex';
             document.getElementById('formRecetPass').style.display = 'none';
@@ -189,4 +233,5 @@
     <script type="text/javascript" src="<?= media(); ?>/js/plugins/sweetalert.min.js"></script>
     <script src="<?= media(); ?>/js/<?= $data['page_functions_js']; ?>"></script>
 </body>
+
 </html>
