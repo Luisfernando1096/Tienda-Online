@@ -1,7 +1,3 @@
-
-
-
-
 <?php
 headerTienda($data);
 $arrProductos = $data['productos'];
