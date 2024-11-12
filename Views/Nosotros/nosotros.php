@@ -10,7 +10,7 @@ $idpagina = $data['page']['idpost'];
 
 <!-- Title page -->
 <section class="bg-img1 txt-center p-lr-15 p-t-30 p-b-30" style="background-image: url(<?= $banner ?>);"> <!-- Aumentar padding -->
-    <h2 class="ltext-105 cl0 txt-center" style="color: #fcb388; margin: 0;">Contacto</h2> <!-- Sin cambios -->
+    <h2 class="ltext-105 cl0 txt-center" style="color: #fcb388; margin: 0;">Nosotros</h2> <!-- Sin cambios -->
 </section>
 
 <section class="bg0 p-t-0 p-b-0">
@@ -127,7 +127,7 @@ $idpagina = $data['page']['idpost'];
 
 <!-- Content page -->
 <?php
-if(viewPage($idpagina)){
+/*if(viewPage($idpagina)){
     echo $data['page']['contenido'];
 }else{
 ?>
@@ -138,7 +138,7 @@ if(viewPage($idpagina)){
     </div>
 </div>
 <?php 
-}
+}*/
 
 footerTienda($data);
 ?>
