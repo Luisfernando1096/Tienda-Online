@@ -1,3 +1,7 @@
+
+
+
+
 <?php
 headerTienda($data);
 $arrProductos = $data['productos'];
@@ -15,11 +19,33 @@ $arrProductos = $data['productos'];
                 </div>
             </div>
 
+            <!-- Paginación: Anterior y Siguiente -->
+            <div class="flex-w flex-c-m m-tb-10">
+                <?php
+                if (count($data['productos']) > 0) {
+                    $prevPagina = $data['pagina'] - 1;
+                    $nextPagina = $data['pagina'] + 1; ?>
+                    <div class="pagination-buttons">
+                        <?php if ($data['pagina'] > 1) { ?>
+                            <a href="<?= base_url() ?>/tienda/page/<?= $prevPagina ?>" class="pagination-button">
+                                <i class="fas fa-chevron-left"></i> Anterior
+                            </a>
+                        <?php } ?>
+                        <?php if ($data['pagina'] != $data['total_paginas']) { ?>
+                            <a href="<?= base_url() ?>/tienda/page/<?= $nextPagina ?>" class="pagination-button">
+                                Siguiente <i class="fas fa-chevron-right"></i>
+                            </a>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
+            </div>
+
             <div class="dis-none panel-filter w-full p-t-10 mb-3">
                 <div class="wrap-filter flex-w bg6 w-full p-lr-40 p-t-27 p-lr-15-sm">
                     <div class="filter-col4 p-b-27">
                         <div class="mtext-102 cl2 p-b-15">Categorías</div>
-                        <div class="flex flex-wrap p-t-4 m-r--5">
+                        <!-- Flexbox con wrap, sin el 'nowrap' -->
+                        <div class="flex flex-wrap p-t-4 m-r--5" style="justify-content: flex-start;">
                             <?php
                             if (count($data['categorias']) > 0) {
                                 foreach ($data['categorias'] as $categoria) { ?>
@@ -33,6 +59,7 @@ $arrProductos = $data['productos'];
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div class="row isotope-grid">
@@ -47,10 +74,10 @@ $arrProductos = $data['productos'];
                         <div class="block2">
                             <div class="block2-pic hov-img0" style="position: relative; overflow: hidden;">
                                 <img src="<?= $portada ?>"
-                                     srcset="<?= $portada ?> 600w, <?= $portada ?> 1200w"
-                                     sizes="(max-width: 600px) 100vw, (min-width: 601px) 50vw"
-                                     alt="<?= $arrProductos[$p]['nombre'] ?>"
-                                     style="width: 100%; height: 300px; object-fit: contain;">
+                                    srcset="<?= $portada ?> 600w, <?= $portada ?> 1200w"
+                                    sizes="(max-width: 600px) 100vw, (min-width: 601px) 50vw"
+                                    alt="<?= $arrProductos[$p]['nombre'] ?>"
+                                    style="width: 100%; height: 300px; object-fit: contain;">
                                 <a href="<?= base_url() . '/tienda/producto/' . $arrProductos[$p]['idproducto'] . '/' . $ruta; ?>" class="view-details">Ver detalles</a>
                             </div>
                             <div class="block2-txt flex-w flex-t p-t-14" style="margin-top: 10px;">
@@ -64,41 +91,27 @@ $arrProductos = $data['productos'];
                                 </div>
                                 <div class="block2-txt-child2 flex-r p-t-3" style="justify-content: flex-end; width: 100%;">
                                     <a href="#"
-                                       id="<?= openssl_encrypt($arrProductos[$p]['idproducto'], METHODENCRIPT, KEY); ?>"
-                                       class="btn-addwish-b2 dis-block pos-relative js-addwish-b2 js-addcart-detail icon-header-item cl2 hov-cl1 trans-04">
+                                        id="<?= openssl_encrypt($arrProductos[$p]['idproducto'], METHODENCRIPT, KEY); ?>"
+                                        class="btn-addwish-b2 dis-block pos-relative js-addwish-b2 js-addcart-detail icon-header-item cl2 hov-cl1 trans-04">
                                         Agregar al carrito
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-            <?php
+                <?php
                 }
             } else { ?>
                 <p>No hay productos para mostrar <a href="<?= base_url() ?>/tienda"> Ver productos</a></p>
             <?php } ?>
         </div>
-
-        <!-- Load more -->
-        <?php
-        if (count($data['productos']) > 0) {
-            $prevPagina = $data['pagina'] - 1;
-            $nextPagina = $data['pagina'] + 1; ?>
-            <div class="flex-c-m flex-w w-full p-t-45">
-                <?php if ($data['pagina'] > 1) { ?>
-                    <a href="<?= base_url() ?>/tienda/page/<?= $prevPagina ?>" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04"><i class="fas fa-chevron-left"></i> &nbsp; Anterior</a>&nbsp;&nbsp;
-                <?php } ?>
-                <?php if ($data['pagina'] != $data['total_paginas']) { ?>
-                    <a href="<?= base_url() ?>/tienda/page/<?= $nextPagina ?>" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">Siguiente &nbsp; <i class="fas fa-chevron-right"></i></a>
-                <?php } ?>
-            </div>
-        <?php } ?>
     </div>
 </div>
 
 <style>
-    /* Estilos generales */
-    .filter-button {
+    /* Estilo para el filtro y paginación */
+    .filter-button,
+    .pagination-button {
         background-color: #624E88;
         color: white;
         padding: 10px 15px;
@@ -113,15 +126,29 @@ $arrProductos = $data['productos'];
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .filter-button:hover {
+    .filter-button:hover,
+    .pagination-button:hover {
         background-color: #7A61B0;
         color: #ffffff;
         transform: scale(1.05);
         border: 2px solid #7A61B0;
     }
 
-    .filter-button:active {
+    .filter-button:active,
+    .pagination-button:active {
         transform: scale(0.95);
+    }
+
+    /* Paginación en la misma fila que el filtro */
+    .pagination-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .pagination-button i {
+        margin-left: 5px;
+        margin-right: 5px;
     }
 
     /* Estilos para las categorías */

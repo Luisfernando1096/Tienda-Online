@@ -1,7 +1,7 @@
 <?php
 headerTienda($data);
 
-$arrSlider = $data['slider'];
+$arrSlider = getCatFooter();
 $arrBanner = $data['banner'];
 $arrProductos = $data['productos'];
 $contentPage = !empty($data['page']) ? $data['page']['contenido'] : ""; // Asegurarse de que siempre esté definida
