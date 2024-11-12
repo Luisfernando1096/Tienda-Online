@@ -311,12 +311,21 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 
 						<!-- Icono de usuario con mensaje de bienvenida -->
 						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-user-menu" id="user-menu">
-							<i class="zmdi zmdi-account"></i>
+							<!-- Ícono de usuario con cambio de color -->
+							<i class="zmdi zmdi-account <?= isset($_SESSION['login']) ? 'logged-in' : ''; ?>"></i>
 							<?php if (isset($_SESSION['login'])) { ?>
-								<span class="welcome-message"><?= $_SESSION['userData']['nombres'] . ' ' . $_SESSION['userData']['apellidos']; ?></span>
+								<div class="welcome-message-icon">
+									<h10>Activo</h10>
+								</div>
 							<?php } ?>
+							<!-- Menú del usuario -->
 							<div class="user-menu-content">
 								<?php if (isset($_SESSION['login'])) { ?>
+									<!-- Nombre del usuario -->
+									<div class="welcome-message" style="cursor: default;">
+										<?= $_SESSION['userData']['nombres'] . ' ' . $_SESSION['userData']['apellidos']; ?>
+									</div>
+									<hr>
 									<div class="user-menu-item"><a href="<?= base_url() ?>/dashboard">Mi cuenta</a></div>
 									<div class="user-menu-item"><a href="<?= base_url() ?>/logout">Salir</a></div>
 								<?php } else { ?>
@@ -326,12 +335,63 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 								<div class="user-menu-item"><a href="#" data-toggle="modal" data-target="#modalTerminos">Terminos y condiciones</a></div>
 							</div>
 						</div>
+
 					</div>
 				</nav>
 			</div>
 		</div>
 
 		<style>
+			/* Cuadro de diálogo tipo burbuja para el nombre del usuario */
+			.welcome-message-icon {
+				position: absolute;
+				top: 0;
+				left: 100%;
+				/* Colocamos la burbuja a la derecha del ícono */
+				margin-left: 10px;
+				/* Un pequeño margen para que no quede pegado al ícono */
+				background-color: #66B2FF;
+				/* Fondo azul (ajustado) */
+				color: #fff;
+				/* Color blanco para el texto */
+				padding: 8px 16px;
+				border-radius: 15px;
+				/* Esquinas redondeadas */
+				font-size: 14px;
+				font-weight: bold;
+				white-space: nowrap;
+				/* Evitar que el texto se divida en varias líneas */
+				z-index: 101;
+				/* Aseguramos que la burbuja esté por encima del ícono */
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+				/* Sombra sutil */
+			}
+
+			/* Flecha del cuadro de diálogo tipo cómic */
+			.welcome-message-icon::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: -10px;
+				transform: translateY(-50%);
+				/* Centramos la flecha verticalmente */
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				border-top: 10px solid #66B2FF;
+			}
+
+			#user-menu i {
+				font-size: 28px;
+				transition: color 0.3s ease;
+				/* Transición suave del color */
+			}
+
+			/* Cambio de color del ícono cuando el usuario está logueado */
+			#user-menu i.logged-in {
+				color: #66B2FF;
+				/* Color del ícono cuando está logueado */
+			}
+
 			.user-menu-content {
 				display: none;
 				position: absolute;
@@ -643,7 +703,7 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 		<div class="header-cart flex-col-l p-l-65 p-r-25">
 			<div class="header-cart-title flex-w flex-sb-m p-b-8">
 				<span class="mtext-103 cl2">
-					Carrito de compras 
+					Carrito de compras
 				</span>
 
 				<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
