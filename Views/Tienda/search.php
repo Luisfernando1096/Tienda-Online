@@ -3,14 +3,38 @@ headerTienda($data);
 $arrProductos = $data['productos'];
 ?>
 <br>
-<div class="container my-5" style="margin-top: 10px;">
-	<div class="breadcrumb">
+<div class="container my-4">
+	<div class="breadcrumb" style="margin-top: 50px;">
 		<a href="<?= base_url() ?>/tienda" style="color: #624E88; font-weight: bold;">
 			Ir a productos
 			<i class="fa fa-angle-right mx-2" aria-hidden="true"></i>
 		</a>
 		<span class="text-muted"><?= $data['page_title'] ?></span>
 	</div>
+</div>
+<!-- Load more -->
+
+<div class="flex-w flex-c-m m-tb-10">
+	<?php
+	if (count($data['productos']) > 0) {
+		$prevPagina = $data['pagina'] - 1;
+		$nextPagina = $data['pagina'] + 1; ?>
+		<div class="pagination-buttons">
+			<?php if ($data['pagina'] > 1) { ?>
+				<a href="<?= base_url() ?>/tienda/search?p=<?= $prevPagina . '&s=' . $data['busqueda'] ?>"
+					class="pagination-button">
+					<i class="fas fa-chevron-left"></i>
+					&nbsp; Anterior </a>&nbsp;&nbsp;
+				</a>
+			<?php } ?>
+			<?php if ($data['pagina'] != $data['total_paginas']) { ?>
+				<a href="<?= base_url() ?>/tienda/search?p=<?= $nextPagina . '&s=' . $data['busqueda'] ?>"
+					class="pagination-button">
+					Siguiente &nbsp; <i class="fas fa-chevron-right"></i>
+				</a>
+			<?php } ?>
+		</div>
+	<?php } ?>
 </div>
 <hr style="margin-top: 0px; margin-bottom: 10px;"> <!-- Product -->
 <div class="bg0 m-t-23 p-b-140">
@@ -57,21 +81,6 @@ $arrProductos = $data['productos'];
 				<p>No hay productos para mostrar <a href="<?= base_url() ?>/tienda"> Ver productos</a></p>
 			<?php } ?>
 		</div>
-
-		<!-- Load more -->
-		<?php
-		if (count($data['productos']) > 0) {
-			$prevPagina = $data['pagina'] - 1;
-			$nextPagina = $data['pagina'] + 1; ?>
-			<div class="flex-c-m flex-w w-full p-t-45">
-				<?php if ($data['pagina'] > 1) { ?>
-					<a href="<?= base_url() ?>/tienda/page/<?= $prevPagina ?>" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04"><i class="fas fa-chevron-left"></i> &nbsp; Anterior</a>&nbsp;&nbsp;
-				<?php } ?>
-				<?php if ($data['pagina'] != $data['total_paginas']) { ?>
-					<a href="<?= base_url() ?>/tienda/page/<?= $nextPagina ?>" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">Siguiente &nbsp; <i class="fas fa-chevron-right"></i></a>
-				<?php } ?>
-			</div>
-		<?php } ?>
 	</div>
 </div>
 
@@ -117,6 +126,44 @@ $arrProductos = $data['productos'];
 		border-radius: 5px;
 		margin-top: 10px;
 		display: inline-block;
+	}
+
+	.pagination-button {
+		background-color: #624E88;
+		color: white;
+		padding: 10px 15px;
+		border-radius: 25px;
+		display: flex;
+		align-items: center;
+		border: 2px solid transparent;
+		transition: background-color 0.3s, color 0.3s, transform 0.3s;
+		cursor: pointer;
+		font-size: 14px;
+		font-weight: normal;
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+	}
+
+	.pagination-button:hover {
+		background-color: #7A61B0;
+		color: #ffffff;
+		transform: scale(1.05);
+		border: 2px solid #7A61B0;
+	}
+
+	.pagination-button:active {
+		transform: scale(0.95);
+	}
+
+	/* Paginación en la misma fila que el filtro */
+	.pagination-buttons {
+		display: flex;
+		justify-content: flex-end;
+		gap: 10px;
+	}
+
+	.pagination-button i {
+		margin-left: 5px;
+		margin-right: 5px;
 	}
 </style>
 
