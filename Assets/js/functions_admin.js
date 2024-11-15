@@ -17,6 +17,16 @@ function testText(txtString){
     }
 }
 
+
+function testTextInt(txtString){
+    var stringText = new RegExp(/^[a-z0-9A-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/);
+    if(stringText.test(txtString)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 function testEntero(intCant){
     var intCantidad = new RegExp(/^([0-9])*$/);
     if(intCantidad.test(intCant)){
@@ -49,6 +59,21 @@ function fntValidText(){
 	});
 }
 
+function fntValidTextInt(){
+	let validText = document.querySelectorAll(".validTextInt");
+    validText.forEach(function(validText) {
+        validText.addEventListener('keyup', function(){
+			let inputValue = this.value;
+			if(!testTextInt(inputValue)){
+				this.classList.add('is-invalid');
+			}else{
+				this.classList.remove('is-invalid');
+			}				
+		});
+	});
+}
+
+
 function fntValidNumber(){
 	let validNumber = document.querySelectorAll(".validNumber");
     validNumber.forEach(function(validNumber) {
@@ -79,6 +104,7 @@ function fntValidEmail(){
 
 window.addEventListener('load', function() {
 	fntValidText();
+    fntValidTextInt();
 	fntValidEmail(); 
 	fntValidNumber();
 }, false);

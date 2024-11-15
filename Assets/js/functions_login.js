@@ -7,9 +7,8 @@ var divLoading = document.querySelector("#divLoading");
 document.addEventListener('DOMContentLoaded', function(){
 	if(document.querySelector("#formLogin")){
 		let formLogin = document.querySelector("#formLogin");
-		formLogin.onsubmit = function(e) {
-			e.preventDefault();
-
+		formLogin.addEventListener('submit',(e)=>{
+			e.preventDefault()
 			let strEmail = document.querySelector('#txtEmail').value;
 			let strPassword = document.querySelector('#txtPassword').value;
 
@@ -41,9 +40,12 @@ document.addEventListener('DOMContentLoaded', function(){
 					}
 					divLoading.style.display = "none";
 					return false;
+
+					
 				}
 			}
-		}
+		})
+
 	}
 
 	if(document.querySelector("#formRecetPass")){		

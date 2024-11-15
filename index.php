@@ -1,4 +1,4 @@
-<?php 
+<?php
 	require_once("Config/Config.php");
 	require_once("Helpers/Helpers.php");
 	$url = !empty($_GET['url']) ? $_GET['url'] : 'home/home';
@@ -9,9 +9,8 @@
 
 	if(!empty($arrUrl[1]))
 	{
-		if($arrUrl[1] != "")
-		{
-			$method = $arrUrl[1];	
+	 if($arrUrl[1] != ""){
+			$method = $arrUrl[1];
 		}
 	}
 
@@ -26,7 +25,9 @@
 			$params = trim($params,',');
 		}
 	}
+	
 	require_once("Libraries/Core/Autoload.php");
 	require_once("Libraries/Core/Load.php");
 
- ?>
+	//echo hash("SHA256",'fer895');
+

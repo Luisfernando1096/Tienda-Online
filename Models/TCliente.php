@@ -3,11 +3,15 @@ require_once("Libraries/Core/Mysql.php");
 trait TCliente{
 	private $con;
 	private $intIdUsuario;
+	private $strIdentificacion;
 	private $strNombre;
 	private $strApellido;
 	private $intTelefono;
 	private $strEmail;
 	private $strPassword;
+	private $intNit;
+	private $strNombreFiscal;
+	private $strDireccionFiscal;
 	private $strToken;
 	private $intTipoId;
 	private $intIdTransaccion;
@@ -42,6 +46,54 @@ trait TCliente{
 			$return = "exist";
 		}
         return $return;
+	}
+
+
+
+	public function insertUserCliente(string $identificacion,string $nombre, string $apellido, int $telefono,
+	 string $email, string $password, int $nit,string $nombreFiscal,string $direccionFiscal, string $token){
+		$this->con = new Mysql();
+		$this->strIdentificacion = $identificacion;
+		$this->strNombre = $nombre;
+		$this->strApellido = $apellido;
+
+		$this->intTelefono = $telefono;
+		$this->strEmail = $email;
+		$this->strPassword = $password;
+
+		$this->intNit = $nit;
+		$this->strNombreFiscal = $nombreFiscal;
+		$this->strDireccionFiscal= $direccionFiscal;
+
+		$this->strToken = $token;
+		
+
+		$response = 0;
+		$sql = "SELECT * FROM persona WHERE 
+				email_user = '{$this->strEmail}' ";
+		$request = $this->con->select_all($sql);
+
+		if(empty($request))
+		{
+			$query_insert  = "INSERT INTO persona(identificacion,nombres,apellidos,telefono,email_user,password,nit,nombrefiscal, direccionfiscal, token,rolid, status)
+							 VALUES(?,?,?,?,?,?,?,?,?,?,3,1)";
+        	$arrData = array(
+				$this->strIdentificacion,
+				$this->strNombre,
+    			$this->strApellido,
+    			$this->intTelefono,
+    			$this->strEmail,
+    			$this->strPassword,
+				$this->intNit,
+				$this->strNombreFiscal,
+				$this->strDireccionFiscal,
+				$this->strToken);
+        	$request_insert = $this->con->insert($query_insert,$arrData);
+        	$response = $request_insert;
+		}else{
+			$response = "exist";
+		}
+        return $response;
 	}
 
 	public function insertPedido(string $idtransaccionpaypal = NULL, string $datospaypal = NULL, int $personaid, float $costo_envio, string $monto, int $tipopagoid, string $direccionenvio, string $status){

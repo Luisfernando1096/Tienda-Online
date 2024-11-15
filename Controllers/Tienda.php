@@ -217,51 +217,49 @@
 			}
 			die();
 		}
-
+		/* Formulario de registro usuarios*/
 		public function registro(){
-			error_reporting(0);
-			if($_POST){
-				if(empty($_POST['txtNombre']) || empty($_POST['txtApellido']) || empty($_POST['txtTelefono']) || empty($_POST['txtEmailCliente']))
-				{
-					$arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
-				}else{ 
-					$strNombre = ucwords(strClean($_POST['txtNombre']));
-					$strApellido = ucwords(strClean($_POST['txtApellido']));
-					$intTelefono = intval(strClean($_POST['txtTelefono']));
-					$strEmail = strtolower(strClean($_POST['txtEmailCliente']));
-					$intTipoId = RCLIENTES; 
-					$request_user = "";
-					
-					$strPassword =  passGenerator();
-					$strPasswordEncript = hash("SHA256",$strPassword);
-					$request_user = $this->insertCliente($strNombre, 
-														$strApellido, 
-														$intTelefono, 
-														$strEmail,
-														$strPasswordEncript,
-														$intTipoId );
-					if($request_user > 0 )
+			$intDni =intval(strClean($_POST['txtdni']));
+			$strNombre = ucwords(strClean($_POST['txtNombre']));
+			$strApellido = ucwords(strClean($_POST['txtApellido']));
+
+			$intTelefono = intval(strClean($_POST['txtTelefono']));
+			$strEmail = strtolower(strClean($_POST['txtEmailCliente']));
+			$strClave = intval(strClean($_POST['txtclave']));
+			$strPasswordEncript = hash("SHA256",$strClave);
+
+			$intNit = intval(strClean($_POST['txtnit']));
+			$strNombreFiscal= ucwords(strClean($_POST['txtnombreFiscal']));
+			$strDireccionFiscal= ucwords(strClean($_POST['txtdireccionFiscal']));
+			
+			
+			$request_user = "";
+			$strToken= token();
+
+			$request_user = $this->insertUserCliente($intDni,$strNombre,$strApellido,$intTelefono,$strEmail,
+		
+			$strPasswordEncript,$intNit,$strNombreFiscal,$strDireccionFiscal,$strToken);
+			
+			if($request_user == 'exist'){
+				$arrResponse = array('status' => false, 'msg' => '¡Atención! el email ya existe, ingrese otro.');
+
+			}elseif ($request_user > 0 )
 					{
 						$arrResponse = array('status' => true, 'msg' => 'Datos guardados correctamente.');
 						$nombreUsuario = $strNombre.' '.$strApellido;
 						$dataUsuario = array('nombreUsuario' => $nombreUsuario,
 											 'email' => $strEmail,
-											 'password' => $strPassword,
+											 'password' => $strClave,
 											 'asunto' => 'Bienvenido a tu tienda en línea');
 						$_SESSION['idUser'] = $request_user;
 						$_SESSION['login'] = true;
 						$this->login->sessionLogin($request_user);
 						sendEmail($dataUsuario,'email_bienvenida');
-
-					}else if($request_user == 'exist'){
-						$arrResponse = array('status' => false, 'msg' => '¡Atención! el email ya existe, ingrese otro.');		
-					}else{
+			}else{
 						$arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
-					}
-				}
-				echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
 			}
-			die();
+			echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+
 		}
 
 		public function procesarVenta(){

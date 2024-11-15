@@ -96,6 +96,87 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 		</div>
 	</div>
 
+	<div class="modal fade" id="modalRegistro" tabindex="-1" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+
+		<div id="alerta"></div>
+
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title"> Crear Cuenta </h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+		  
+	      <div class="modal-body">
+			<form id="formRegister">
+				<div class="row">
+						<div class="col col-md-4 ">
+							<label for="txtNombre">Nombres</label>
+							<input type="text" class="form-control valid validText" id="txtNombre" name="txtNombre" >
+						</div>
+
+						<div class="col col-md-4 ">
+							<label for="txtApellido">Apellidos</label>
+							<input type="text" class="form-control valid validText" id="txtApellido" name="txtApellido" >
+						</div>
+
+						<div class="col col-md-4 ">
+							<label for="txtTelefono">Teléfono</label>
+							<input type="text" class="form-control valid validNumber" id="txtTelefono" name="txtTelefono"  maxlength="8" onkeypress="return controlTag(event);">
+						</div>
+				</div>
+				    
+				<div class="row">
+						
+						<div class="col col-md-4 ">
+							<label for="txtEmailCliente">Email</label>
+							<input type="email" class="form-control valid validEmail" id="txtEmailCliente" name="txtEmailCliente" required="">
+						</div>
+
+						<div class="col col-md-4 ">
+							<label for="clave" class="form-label">Password</label>
+							<input type="password" class="form-control" id="txtclave" name="txtclave" required>
+						</div>
+
+						<div class="col col-md-4 ">
+							<label for="dni" class="form-label">Identificacion</label>
+							<input type="text" class="form-control valid validNumber" id="txtdni" name="txtdni" maxlength="10" required onkeypress="return controlTag(event);">
+						</div>
+
+				</div>
+
+				<div class="row">
+					<div class="col col-md-4 ">
+						<label for="telf" class="form-label">Nit</label>
+						<input type="text" class="form-control valid validNumber" id="txtnit" name="txtnit" maxlength="10" onkeypress="return controlTag(event);">
+				    </div>
+
+					<div class="col col-md-4 ">
+						<label for="telf" class="form-label">Nombre Fiscal</label>
+						<input type="text" class="form-control valid validText" id="txtnombreFiscal" name="txtnombreFiscal" >
+					</div>
+
+					<div class="col-md-4">
+						<label for="telf" class="form-label">Dirección Fiscal</label>
+						<input type="text" class="form-control valid validTextInt" id="txtdireccionFiscal" name="txtdireccionFiscal" >
+					</div>
+				</div>
+
+					<div class="modal-footer mt-4">
+						<button type="submit" class="btn btn-primary">Regístrate</button>
+					    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+			        </div>
+
+			</form>
+			
+	      </div>
+	     
+	    </div>
+	  </div>
+	</div>
+
 	<!-- Modal HTML -->
 	<div class="modal fade" id="modalTerminos" tabindex="-1" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
@@ -331,6 +412,7 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 								<?php } else { ?>
 									<div class="user-menu-item"><a href="<?= base_url() ?>/login">Iniciar Sesión</a></div>
 								<?php } ?>
+								<div class="user-menu-item"><a href="#" data-toggle="modal" data-target="#modalRegistro">Crear cuenta</a></div>
 								<div class="user-menu-item"><a href="#" data-toggle="modal" data-target="#modalAyuda">Help & FAQs</a></div>
 								<div class="user-menu-item"><a href="#" data-toggle="modal" data-target="#modalTerminos">Terminos y condiciones</a></div>
 							</div>
