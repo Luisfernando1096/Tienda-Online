@@ -95,87 +95,89 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 			</div>
 		</div>
 	</div>
-
+	<!-- Modal de Registro -->
 	<div class="modal fade" id="modalRegistro" tabindex="-1" aria-hidden="true">
-	  <div class="modal-dialog modal-lg">
-
-		<div id="alerta"></div>
-
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title"> Crear Cuenta </h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-		  
-	      <div class="modal-body">
-			<form id="formRegister">
-				<div class="row">
-						<div class="col col-md-4 ">
-							<label for="txtNombre">Nombres</label>
-							<input type="text" class="form-control valid validText" id="txtNombre" name="txtNombre" >
-						</div>
-
-						<div class="col col-md-4 ">
-							<label for="txtApellido">Apellidos</label>
-							<input type="text" class="form-control valid validText" id="txtApellido" name="txtApellido" >
-						</div>
-
-						<div class="col col-md-4 ">
-							<label for="txtTelefono">Teléfono</label>
-							<input type="text" class="form-control valid validNumber" id="txtTelefono" name="txtTelefono"  maxlength="8" onkeypress="return controlTag(event);">
-						</div>
-				</div>
-				    
-				<div class="row">
-						
-						<div class="col col-md-4 ">
-							<label for="txtEmailCliente">Email</label>
-							<input type="email" class="form-control valid validEmail" id="txtEmailCliente" name="txtEmailCliente" required="">
-						</div>
-
-						<div class="col col-md-4 ">
-							<label for="clave" class="form-label">Password</label>
-							<input type="password" class="form-control" id="txtclave" name="txtclave" required>
-						</div>
-
-						<div class="col col-md-4 ">
-							<label for="dni" class="form-label">Identificacion</label>
-							<input type="text" class="form-control valid validNumber" id="txtdni" name="txtdni" maxlength="10" required onkeypress="return controlTag(event);">
-						</div>
-
-				</div>
-
-				<div class="row">
-					<div class="col col-md-4 ">
-						<label for="telf" class="form-label">Nit</label>
-						<input type="text" class="form-control valid validNumber" id="txtnit" name="txtnit" maxlength="10" onkeypress="return controlTag(event);">
-				    </div>
-
-					<div class="col col-md-4 ">
-						<label for="telf" class="form-label">Nombre Fiscal</label>
-						<input type="text" class="form-control valid validText" id="txtnombreFiscal" name="txtnombreFiscal" >
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="header-icon">
+						<i class="fas fa-book"></i> <!-- Ícono del cuaderno -->
 					</div>
-
-					<div class="col-md-4">
-						<label for="telf" class="form-label">Dirección Fiscal</label>
-						<input type="text" class="form-control valid validTextInt" id="txtdireccionFiscal" name="txtdireccionFiscal" >
-					</div>
+					<h5 class="modal-title">Crear Cuenta</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
 				</div>
+				<div class="modal-body">
+					<form id="formRegister">
+						<!-- Fila 1: Nombres y Apellidos -->
+						<div class="row">
+							<div class="col col-md-6">
+								<label for="txtNombre">Nombres</label>
+								<input type="text" class="form-control" id="txtNombre" name="txtNombre" placeholder="Tu nombre">
+							</div>
+							<div class="col col-md-6">
+								<label for="txtApellido">Apellidos</label>
+								<input type="text" class="form-control" id="txtApellido" name="txtApellido" placeholder="Tu apellido">
+							</div>
+						</div>
 
-					<div class="modal-footer mt-4">
-						<button type="submit" class="btn btn-primary">Regístrate</button>
-					    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-			        </div>
+						<!-- Fila 2: Teléfono y Email -->
+						<div class="row">
+							<div class="col col-md-6">
+								<label for="txtTelefono">Teléfono</label>
+								<input type="text" class="form-control" id="txtTelefono" name="txtTelefono" maxlength="8" placeholder="Tu teléfono" onkeypress="return controlTag(event);">
+							</div>
+							<div class="col col-md-6">
+								<label for="txtEmailCliente">Email</label>
+								<input type="email" class="form-control" id="txtEmailCliente" name="txtEmailCliente" required="" placeholder="Tu email">
+							</div>
+						</div>
 
-			</form>
-			
-	      </div>
-	     
-	    </div>
-	  </div>
+						<!-- Fila 3: Password e Identificación -->
+						<div class="row">
+							<div class="col col-md-6">
+								<label for="txtclave">Password</label>
+								<input type="password" class="form-control" id="txtclave" name="txtclave" required placeholder="Tu contraseña">
+							</div>
+							<div class="col col-md-6">
+								<label for="txtdni">Identificación</label>
+								<input type="text" class="form-control" id="txtdni" name="txtdni" maxlength="10" required placeholder="Tu identificación" onkeypress="return controlTag(event);">
+							</div>
+						</div>
+
+						<!-- Fila 4: Nit y Nombre Fiscal -->
+						<div class="row">
+							<div class="col col-md-6">
+								<label for="txtNit">Nit</label>
+								<input type="text" class="form-control" id="txtnit" name="txtnit" maxlength="10" placeholder="Tu NIT" onkeypress="return controlTag(event);">
+							</div>
+							<div class="col col-md-6">
+								<label for="txtNombreFiscal">Nombre Fiscal</label>
+								<input type="text" class="form-control" id="txtnombreFiscal" name="txtnombreFiscal" placeholder="Nombre fiscal">
+							</div>
+						</div>
+
+						<!-- Fila 5: Dirección Fiscal -->
+						<div class="row">
+							<div class="col col-md-12">
+								<label for="txtDireccionFiscal">Dirección Fiscal</label>
+								<input type="text" class="form-control" id="txtdireccionFiscal" name="txtdireccionFiscal" placeholder="Dirección fiscal">
+							</div>
+						</div>
+
+						<!-- Botones -->
+						<div class="modal-footer mt-4">
+							<button type="submit" class="btn btn-primary">Regístrate</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+						</div>
+					</form >
+				</div>
+			</div>
+		</div>
 	</div>
+
+
 
 	<!-- Modal HTML -->
 	<div class="modal fade" id="modalTerminos" tabindex="-1" aria-hidden="true">
@@ -257,6 +259,157 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 
 	<!-- Estilos CSS -->
 	<style>
+		/* Estilos Generales del Modal */
+		.modal-dialog {
+			max-width: 60%;
+			/* Modal más estrecho */
+			margin: 30px auto;
+		}
+
+		.modal-content {
+			border-radius: 10px;
+			/* Bordes redondeados */
+			border: 5px solid #624E88;
+			/* Borde morado alrededor del formulario */
+			position: relative;
+		}
+
+		.modal-header {
+			background-color: #f1f1f1;
+			/* Fondo claro */
+			border-bottom: 1px solid #ddd;
+			padding: 10px 15px;
+			/* Espaciado reducido */
+			text-align: center;
+			border-radius: 10px;
+		}
+
+		.modal-header .header-icon {
+			position: absolute;
+			top: -18px;
+			/* Ajuste del cuaderno */
+			left: 50%;
+			transform: translateX(-50%);
+			/* Centrado horizontalmente */
+			background-color: #624E88;
+			/* Fondo morado */
+			padding: 8px;
+			border-radius: 50%;
+		}
+
+		.modal-header .header-icon i {
+			font-size: 1.5rem;
+			/* Icono más pequeño */
+			color: white;
+			/* Ícono blanco */
+		}
+
+		.modal-title {
+			font-size: 1.3rem;
+			font-weight: 600;
+			color: #333;
+		}
+
+		.close {
+			font-size: 1.5rem;
+			color: #333;
+		}
+
+		/* Inputs */
+		.modal-body .form-control {
+			border-radius: 5px;
+			border: 1px solid #ced4da;
+			padding: 10px 12px;
+			font-size: 0.95rem;
+			/* Tamaño de fuente más pequeño */
+			background-color: #ffffff;
+			margin-bottom: 1rem;
+			/* Espaciado entre inputs */
+		}
+
+		.modal-body .form-control:focus {
+			border-color: #6f42c1;
+			/* Borde morado al enfocarse */
+			box-shadow: 0 0 5px rgba(111, 66, 193, 0.3);
+		}
+
+		.modal-body label {
+			font-size: 1rem;
+			/* Etiquetas más pequeñas */
+			color: #495057;
+			margin-bottom: 8px;
+			font-weight: 500;
+		}
+
+		/* Estructura de las filas con dos columnas */
+		.row {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.col-md-6 {
+			flex: 1 1 48%;
+			/* Dos columnas por fila */
+			margin-right: 2%;
+			/* Espacio entre columnas */
+			margin-bottom: 1rem;
+		}
+
+		.col-md-6:last-child {
+			margin-right: 0;
+		}
+
+		/* Botones */
+		.modal-footer {
+			padding: 15px 20px;
+			background-color: #f8f9fa;
+			border-top: 1px solid #ddd;
+			text-align: center;
+		}
+
+		.modal-footer .btn {
+			border-radius: 5px;
+			padding: 8px 20px;
+			/* Botones más pequeños */
+			font-size: 0.95rem;
+			/* Texto más pequeño en botones */
+			font-weight: 600;
+			transition: background-color 0.3s ease;
+			border: none;
+		}
+
+		.modal-footer .btn-primary {
+			background-color: #624E88;
+			color: white;
+		}
+
+		.modal-footer .btn-primary:hover {
+			background-color: #5a2e9e;
+		}
+
+		.modal-footer .btn-secondary {
+			background-color: #fcb388;
+			color: white;
+		}
+
+		.modal-footer .btn-secondary:hover {
+			background-color: #5a6268;
+		}
+
+		/* Responsividad para pantallas pequeñas */
+		@media (max-width: 767px) {
+			.modal-dialog {
+				max-width: 90%;
+				/* Más ancho en pantallas pequeñas */
+			}
+
+			.col-md-6 {
+				flex: 1 1 100%;
+				/* 100% de ancho en pantallas pequeñas */
+				margin-right: 0;
+			}
+		}
+
 		.modal-dialog {
 			max-width: 60%;
 			/* Ajustamos el ancho del modal */
@@ -288,6 +441,8 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 			background-color: #fff;
 			line-height: 1.5;
 			font-size: 0.95rem;
+			border-radius: 10px;
+
 		}
 
 		.modal-body h5 {
