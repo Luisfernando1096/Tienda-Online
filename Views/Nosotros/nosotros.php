@@ -21,7 +21,7 @@ $idpagina = $data['page']['idpost'];
             <div class="col-md-5 col-lg-4 m-lr-auto">
                 <div class="how-bor1">
                     <div class="hov-img0">
-                        <img src="https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849825_1280.jpg" alt="Historia" class="img-fluid" />
+                        <img src="https://th.bing.com/th/id/OIP.LJQ096ANWBqONIZ20-JTqAHaF1?rs=1&pid=ImgDetMain" alt="Historia" class="img-fluid" />
                     </div>
                 </div>
             </div>
@@ -31,17 +31,18 @@ $idpagina = $data['page']['idpost'];
                 <div>
                     <h3 class="mtext-111 cl2 p-b-16">Historia</h3>
                     <p class="stext-113 cl6 p-b-26">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris consequat consequat enim, non auctor massa ultrices non. Morbi sed odio massa. Quisque at vehicula tellus, sed tincidunt augue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas varius egestas diam, eu sodales metus scelerisque congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                    Cosmetify: Tu Tienda de Belleza en Línea, surge como una iniciativa para aprovechar el creciente mercado del comercio electrónico en El Salvador, especialmente en el sector de la belleza. Inspirado por la necesidad de ofrecer un acceso más amplio a productos cosméticos de calidad, se plantea la creación de una plataforma que permita a los consumidores comprar productos de belleza de manera sencilla, segura y desde cualquier lugar del país.
                     </p>
                     <p class="stext-113 cl6 p-b-26">
-                        Donec gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna. Aliquam aliquam imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque congue ac orci ut gravida. Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu sodales lectus sagittis.
+                    Con el objetivo de ofrecer una experiencia única de compra, Cosmetify busca ser una plataforma confiable donde las personas puedan acceder a una amplia variedad de productos cosméticos, desde los más conocidos hasta las marcas más exclusivas. A través de nuestra tienda en línea, nuestros clientes pueden disfrutar de la comodidad de adquirir productos de calidad con solo un clic, asegurando su satisfacción y bienestar.
                     </p>
                     <p class="stext-113 cl6 p-b-26">
-                        Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+                    Cosmetify ha nacido para transformar la forma en que los salvadoreños compran productos de belleza, haciendo que el acceso a estos productos sea más fácil y accesible para todos. Nuestro compromiso con la calidad y el servicio al cliente nos impulsa a seguir creciendo y adaptándonos a las necesidades de nuestros usuarios, garantizando su confianza y lealtad.
                     </p>
                 </div>
             </div>
         </div>
+
 
         <!-- Sección de Misión -->
         <div class="row mision-group">
@@ -50,16 +51,15 @@ $idpagina = $data['page']['idpost'];
                 <div>
                     <h2 class="mtext-111 cl2 p-b-16"><span style="color: #236fa1;">Nuestra Misión</span></h2>
                     <p class="stext-113 cl6 p-b-26">
-                        Mauris non lacinia magna. Sed nec lobortis dolor. Vestibulum rhoncus dignissim risus, sed consectetur erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam maximus mauris sit amet odio convallis, in pharetra magna gravida. Praesent sed nunc fermentum mi molestie tempor. Morbi vitae viverra odio. Pellentesque ac velit egestas, luctus arcu non, laoreet mauris.
+                    En Cosmetify, nuestra misión es proporcionar una plataforma en línea eficiente y accesible para la comercialización de productos de belleza, permitiendo a nuestros usuarios comprar desde la comodidad de su hogar. Nos comprometemos a ofrecer una amplia gama de productos cosméticos de alta calidad, adaptados a las necesidades y gustos de cada cliente, asegurando una experiencia de compra sencilla, segura y satisfactoria.
                     </p>
                     <p class="stext-113 cl6 p-b-26">
-                        Ut mauris ligula, volutpat in sodales in, porta non odio. Pellentesque tempor urna vitae mi vestibulum, nec venenatis nulla lobortis. Proin at gravida ante. Mauris auctor purus at lacus maximus euismod. Pellentesque vulputate massa ut nisl hendrerit, eget elementum libero iaculis.
+                    Buscamos constantemente mejorar la experiencia de nuestros usuarios, innovando con nuevas funcionalidades en nuestra plataforma y garantizando un servicio excepcional. Nuestro objetivo es convertirnos en el sitio de referencia para la compra de productos de belleza en línea en El Salvador, brindando a nuestros clientes acceso a marcas tanto nacionales como internacionales.
                     </p>
                     <div class="bor16 p-l-29 p-b-9 m-t-22">
                         <p class="stext-114 cl6 p-r-40 p-b-11">
-                            Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while.
+                        "Nuestro compromiso es conectar a las personas con la belleza, transformando su forma de vivirla y disfrutarla."
                         </p>
-                        <span class="stext-111 cl8">- Steve Job’s</span>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@ $idpagina = $data['page']['idpost'];
             <div class="col-md-5 col-lg-4 m-lr-auto">
                 <div class="how-bor2">
                     <div class="hov-img0">
-                        <img src="https://cdn.pixabay.com/photo/2015/07/17/22/43/student-849822_1280.jpg" alt="Misión" class="img-fluid" />
+                        <img src="https://i0.wp.com/directorioindispensable.com/directorio-merida-yucatan/wp-content/uploads/2017/07/saludabit-cosmeticos.jpg?resize=1080%2C675&ssl=1" alt="Misión" class="img-fluid" />
                     </div>
                 </div>
             </div>

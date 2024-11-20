@@ -86,7 +86,17 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 				</div>
 				<div class="modal-body">
 					<div class="page-content">
-						<?= $infoPreguntas; ?>
+						<ol>
+							<li><strong>¿Cuál es el tiempo de entrega de los productos?</strong> El tiempo de entrega varía según la ubicación del cliente. Generalmente, los productos se entregan en un plazo de 2 a 5 días hábiles dentro de El Salvador. Sin embargo, este tiempo puede variar dependiendo de la disponibilidad del producto y la zona de envío. Siempre notificamos a nuestros clientes sobre el estado de su pedido y cualquier cambio en el tiempo de entrega.</li>
+							<li><strong>¿Cómo es la forma de envío de los productos?</strong> Los productos son enviados a través de empresas de mensajería confiables que garantizan entregas seguras y puntuales. Ofrecemos opciones de envío estándar y exprés, para que puedas elegir la que mejor se adapte a tus necesidades. Además, proporcionamos un número de seguimiento para que puedas verificar el estado de tu pedido en todo momento.</li>
+							<li><strong>¿Cuál es el tiempo máximo para solicitar un reembolso?</strong> El tiempo máximo para solicitar un reembolso es de 30 días a partir de la fecha de entrega del producto. Si el producto es defectuoso o no corresponde con lo solicitado, ofrecemos un proceso de devolución rápido y sencillo. Para iniciar una solicitud de reembolso, por favor contacta a nuestro servicio al cliente proporcionando el número de pedido y detalles del producto.</li>
+						</ol>
+
+						<p>&nbsp;</p>
+						<p>Otras preguntas</p>
+						<ul>
+							<li><strong>¿Qué formas de pago aceptan?</strong> Aceptamos una variedad de métodos de pago seguros, incluyendo tarjetas de crédito y débito, transferencias bancarias, y pagos a través de plataformas como PayPal. Además, ofrecemos la opción de pago contra entrega en algunas áreas. Todos los métodos de pago están protegidos con encriptación para garantizar la seguridad de tus transacciones.</li>
+						</ul>
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -171,7 +181,7 @@ $infoPreguntas = !empty(getInfoPage(PPREGUNTAS)) ? getInfoPage(PPREGUNTAS)['cont
 							<button type="submit" class="btn btn-primary">Regístrate</button>
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 						</div>
-					</form >
+					</form>
 				</div>
 			</div>
 		</div>

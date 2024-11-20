@@ -29,7 +29,7 @@ $idpagina = $data['page']['idpost'];
 							<p class="heading heading--small" style="margin: 0;">¡Ponte en contacto con nosotros!</p> <!-- Eliminado margen -->
 							<div class="rte">
 								<p>
-									<strong>800-841-5541<br>Horario de atención Lunes a Viernes 9:00 am a 7:00 pm<br><br>
+									<strong>60586125<br>Horario de atención Lunes a Viernes 9:00 am a 7:00 pm<br><br>
 										Horario de Atención vía Chat o WhatsApp<br>
 										Lunes a viernes: 10:00 am - 10:00 pm<br>
 										Sábado y domingo 11:30 a 2:00 pm y 4:00 pm a 9:00 pm</strong>
