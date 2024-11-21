@@ -273,7 +273,6 @@
 				$status = "Pendiente";
 				$subtotal = 0;
 				$costo_envio = COSTOENVIO;
-
 				if(!empty($_SESSION['arrCarrito'])){
 					foreach ($_SESSION['arrCarrito'] as $pro) {
 						$subtotal += $pro['cantidad'] * $pro['precio']; 
@@ -281,6 +280,7 @@
 					$monto = $subtotal + COSTOENVIO;
 					//Pago contra entrega
 					if(empty($_POST['datapay'])){
+						
 						//Crear pedido
 						$request_pedido = $this->insertPedido($idtransaccionpaypal, 
 															$datospaypal, 
@@ -298,24 +298,24 @@
 								$cantidad = $producto['cantidad'];
 								$this->insertDetalle($request_pedido,$productoid,$precio,$cantidad);
 							}
-
+							
 							$infoOrden = $this->getPedido($request_pedido);
 							$dataEmailOrden = array('asunto' => "Se ha creado la orden No.".$request_pedido,
 													'email' => $_SESSION['userData']['email_user'], 
 													'emailCopia' => EMAIL_PEDIDOS,
 													'pedido' => $infoOrden );
-							sendEmail($dataEmailOrden,"email_notificacion_orden");
-
+							//sendEmail($dataEmailOrden,"email_notificacion_orden");
 							$orden = openssl_encrypt($request_pedido, METHODENCRIPT, KEY);
-							$transaccion = openssl_encrypt($idtransaccionpaypal, METHODENCRIPT, KEY);
+							
 							$arrResponse = array("status" => true, 
 											"orden" => $orden, 
-											"transaccion" =>$transaccion,
+											"transaccion" =>null,
 											"msg" => 'Pedido realizado'
 										);
 							$_SESSION['dataorden'] = $arrResponse;
 							unset($_SESSION['arrCarrito']);
 							session_regenerate_id(true);
+							
 						}
 					}else{ //Pago con PayPal
 						$jsonPaypal = $_POST['datapay'];
@@ -391,12 +391,12 @@
 			}else{
 				$dataorden = $_SESSION['dataorden'];
 				$idpedido = openssl_decrypt($dataorden['orden'], METHODENCRIPT, KEY);
-				$transaccion = openssl_decrypt($dataorden['transaccion'], METHODENCRIPT, KEY);
+				if($dataorden['transaccion'] != null) $transaccion = openssl_decrypt($dataorden['transaccion'], METHODENCRIPT, KEY);
 				$data['page_tag'] = "Confirmar Pedido";
 				$data['page_title'] = "Confirmar Pedido";
 				$data['page_name'] = "confirmarpedido";
 				$data['orden'] = $idpedido;
-				$data['transaccion'] = $transaccion;
+				if($dataorden['transaccion'] != null) $data['transaccion'] = $transaccion;
 				$this->views->getView($this,"confirmarpedido",$data);
 			}
 			unset($_SESSION['dataorden']);

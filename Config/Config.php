@@ -9,7 +9,7 @@
 	const DB_HOST = "localhost";
 	const DB_NAME = "db_tiendavirtual";
 	const DB_USER = "root";
-	const DB_PASSWORD = "";
+	const DB_PASSWORD = "Pa55word";
 	const DB_CHARSET = "utf8";
 
 	//Para envío de correo
@@ -26,8 +26,8 @@
 	//Api PayPal
 	//SANDBOX PAYPAL
 	const URLPAYPAL = "https://api-m.paypal.com";
-	const IDCLIENTE = "AY9OMrOGDLT2ZvWO0G0mTYiLblQYuCgzU04UmWHbOZ0SbX_ExRlWRCJr5CfR2Zk3i1G9-mbw5qbhlVSU";
-	const SECRET = "EN-IIb1A2Ei2KDJ_qf4c54L4CfJAhyWtvd4wb71XrXHLToxjk0UAdwIiTWXo4jxL0SZwQXgK3qzLNHV0";
+	const IDCLIENTE = "AYj4Li0nHgl9wlqtltQBR3oLdQUs-DK7r-ZpPn8Ihw8izQJ4akDxzAmKBaMVcmmvCJvRqcQVEJXIRSfw";
+	const SECRET = "EAAMzYvg88NjtkQSiwZ0Mx7atf0KQzvkBwrkRz2h5GtxAUxqd5Z5s7UQIeHQTvnFjP1c_w7frz5OiZO0";
 	//LIVE PAYPAL
 	//const URLPAYPAL = "https://api-m.paypal.com";
 	//const IDCLIENTE = "";

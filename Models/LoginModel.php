@@ -10,6 +10,7 @@
 		public function __construct()
 		{
 			parent::__construct();
+			$this->execute("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");
 		}	
 
 		public function loginUser(string $usuario, string $password)
