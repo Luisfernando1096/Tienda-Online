@@ -3,7 +3,7 @@
 	//const BASE_URL = "https://abelosh.com/tiendavirtual";
 
 	//Zona horaria
-	date_default_timezone_set('America/Guatemala');
+	date_default_timezone_set('America/El_Salvador');
 
 	//Datos de conexión a Base de Datos
 	const DB_HOST = "localhost";
@@ -25,9 +25,9 @@
 
 	//Api PayPal
 	//SANDBOX PAYPAL
-	const URLPAYPAL = "https://api-m.paypal.com";
-	const IDCLIENTE = "AYj4Li0nHgl9wlqtltQBR3oLdQUs-DK7r-ZpPn8Ihw8izQJ4akDxzAmKBaMVcmmvCJvRqcQVEJXIRSfw";
-	const SECRET = "EAAMzYvg88NjtkQSiwZ0Mx7atf0KQzvkBwrkRz2h5GtxAUxqd5Z5s7UQIeHQTvnFjP1c_w7frz5OiZO0";
+	const URLPAYPAL = "https://sandbox.paypal.com";
+	const IDCLIENTE = "AXk0sNr0rQe0QHJIB_Tef-HYu5Sl7WdS7Wq7csfmes8rYeyEdl9y2Hj3jAAgo-faOYggBtvsoXSugWUB";
+	const SECRET = "ECO8qtzxvNBO9Txg7tdMXEW3Z5xlTuRruN9Uv0cOzrIdhqF22kcgP302PSZ8ZJn1QEykFkM_F8tFq209";
 	//LIVE PAYPAL
 	//const URLPAYPAL = "https://api-m.paypal.com";
 	//const IDCLIENTE = "";

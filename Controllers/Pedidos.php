@@ -182,7 +182,7 @@ class Pedidos extends Controllers{
 						if($estado == ""){
 							$arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
 						}else{
-							$requestPedido = $this->model->updatePedido($idpedido,"","",$estado);
+							$requestPedido = $this->model->updatePedido($idpedido,$estado,"","");
 							if($requestPedido){
 								$arrResponse = array("status" => true, "msg" => "Datos actualizados correctamente");
 							}else{
@@ -193,7 +193,7 @@ class Pedidos extends Controllers{
 						if($transaccion == "" or $idtipopago =="" or $estado == ""){
 							$arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
 						}else{
-							$requestPedido = $this->model->updatePedido($idpedido,$transaccion,$idtipopago,$estado);
+							$requestPedido = $this->model->updatePedido($idpedido,$estado,$transaccion,$idtipopago);
 							if($requestPedido){
 								$arrResponse = array("status" => true, "msg" => "Datos actualizados correctamente");
 							}else{

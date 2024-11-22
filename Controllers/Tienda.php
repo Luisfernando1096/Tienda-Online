@@ -352,7 +352,7 @@
 													'emailCopia' => EMAIL_PEDIDOS,
 													'pedido' => $infoOrden );
 
-									sendEmail($dataEmailOrden,"email_notificacion_orden");
+									//sendEmail($dataEmailOrden,"email_notificacion_orden");
 
 									$orden = openssl_encrypt($request_pedido, METHODENCRIPT, KEY);
 									$transaccion = openssl_encrypt($idtransaccionpaypal, METHODENCRIPT, KEY);
@@ -364,6 +364,8 @@
 									$_SESSION['dataorden'] = $arrResponse;
 									unset($_SESSION['arrCarrito']);
 									session_regenerate_id(true);
+									//echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
+									//die();
 								}else{
 									$arrResponse = array("status" => false, "msg" => 'No es posible procesar el pedido.');
 								}
