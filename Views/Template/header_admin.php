@@ -42,7 +42,11 @@
           <li><a class="dropdown-item" href="<?= base_url(); ?>/logout"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
         </ul>
       </li>
-
+      <li>
+        <a class="app-nav__item" href="<?= base_url(); ?>/carrito/" aria-label="Go to Profile">
+          <i class="fa fa-arrow-right fa-lg"> continuar pago</i>
+        </a>
+      </li>
     </ul>
   </header>
   <style>
